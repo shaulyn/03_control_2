@@ -6,17 +6,19 @@ const val ERROR_TYPE = -1
 const val ERROR_LIMIT = -2
 
 fun main(){
-    println(comission("Мир", 0, 100_000))
+    println(comission("Mastercard", 25000, 40_000))
 
 }
 
-fun comission(cardType: String = "Мир", previous: Int, transfer: Int ): Int{
+fun comission(cardType: String = "Мир", previous: Int = 0, transfer: Int ): Int{
     return  when(cardType) {
         "Mastercard" -> if(previous+transfer<=600_000 && transfer<=150_000) {
-            if(previous >=75000){
+            if(previous >75000){
                 (transfer * 0.006).toInt() + 20
-            }else {
+            }else if(previous+transfer > 75000)  {
                 ((transfer -75000) * 0.006).toInt() + 20
+            }else{
+                transfer
             }
         }else{
             ERROR_LIMIT
