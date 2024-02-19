@@ -69,6 +69,17 @@ class ComisionTest {
         assertEquals(50000, result)
     }
 
+    @Test
+    fun testMastercardLimit4(){
+        val type = "Mastercard"
+        val previous = 0
+        val transfer = 50_000
+
+        val result = comission(cardType = type, previous = previous, transfer=transfer)
+
+        assertEquals(60000, result)
+    }
+
 
 
     @Test
