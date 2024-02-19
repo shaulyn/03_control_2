@@ -1,5 +1,3 @@
-package ru.netology
-
 import kotlin.math.max
 
 const val ERROR_TYPE = -1
